@@ -17,7 +17,7 @@ async function main() {
     web3.eth.defaultAccount = web3.eth.accounts[0];
 
     var RemixContract = new web3.eth.Contract(
-      [ //abi
+      [  //abi
         {
           constant: false,
           inputs: [
