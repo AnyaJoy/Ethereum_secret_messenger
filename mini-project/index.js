@@ -1,8 +1,10 @@
 let input = document.getElementById("userInput");
 const button = document.getElementById("setMessageButton");
+const ethereumButton = document.getElementById("enableEthereumButton");
 
-input.addEventListener("input")
+input.addEventListener("input", console.log(''))
 button.addEventListener("click", sendMessage);
+ethereumButton.addEventListener("click", connectEthereum);
 
 var contract
 
@@ -59,6 +61,11 @@ main()
 async function sendMessage() {
     const message = input.value
     console.log(input.value)
-    contract.setMessage(message)
+    contract.setMessage(message).send()
     input.value=''
+}
+
+async function connectEthereum() {
+    console.log('here')
+    ethereum.request({ method: 'eth_requestAccounts' });
 }
